@@ -1,430 +1,379 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CA">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="E.M.A. Tutorat - Micro-classes de mathématiques SN4 à Sherbrooke. Arbres de décision algorithmiques. Résultats garantis.">
-    <meta property="og:title" content="E.M.A. Tutorat - Apprentissage Simplifié">
-    <meta property="og:description" content="3-6 élèves. Exécution • Méthode • Algorithme">
-    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect fill='%237C3AED' width='1200' height='630'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='96' fill='white' font-family='system-ui, sans-serif' font-weight='bold'%3EE.M.A. TUTORAT%3C/text%3E%3C/svg%3E">
-    <meta name="theme-color" content="#7C3AED">
-    
-    <!-- Favicon inline SVG -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%237C3AED'/><text x='50' y='60' text-anchor='middle' font-size='60' fill='white' font-family='system-ui' font-weight='bold'>E</text></svg>">
-    
-    <!-- SEO Local (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "E.M.A. Tutorat",
-      "description": "Micro-classes de mathématiques SN4",
-      "url": "https://amharokad-code.github.io/micro-classes-ema/",
-      "telephone": "+1-819-XXX-XXXX",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sherbrooke",
-        "addressLocality": "Sherbrooke",
-        "addressRegion": "QC",
-        "postalCode": "J1H",
-        "addressCountry": "CA"
-      },
-      "areaServed": "Sherbrooke, Quebec",
-      "serviceType": "Tutorat en Mathématiques"
-    }
-    </script>
-    
-    <title>E.M.A. Tutorat | Micro-Classes de Mathématiques SN4 à Sherbrooke</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E.M.A. Tutorat — Réussis avec une méthode, pas de la chance</title>
+<meta name="description" content="Tutorat privé et micro-classes à Sherbrooke. Méthode E.M.A. : Exécution, Méthode, Algorithme.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ========== NAVBAR ========== -->
-<nav class="navbar">
-    <div class="navbar-container">
-        <div class="logo">E.M.A.</div>
-        <ul class="nav-links">
-            <li><a href="#hero" class="nav-link">Accueil</a></li>
-            <li><a href="#probleme" class="nav-link">Problème</a></li>
-            <li><a href="#methode" class="nav-link">Méthode</a></li>
-            <li><a href="#arbre" class="nav-link">Exemple</a></li>
-            <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="mobile-toggle">☰</div>
-    </div>
-</nav>
+<!-- ============================================
+     VUE 1 : LANDING PAGE PUBLIQUE (résumé bref)
+     ============================================ -->
+<div id="view-landing" class="view active">
 
-<!-- ========== HERO / ACCROCHE ========== -->
-<section id="hero" class="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">
-            <span class="pain">3 heures de devoirs</span><br>
-            <span class="contrast">pour 2 exercices?</span>
-        </h1>
-        <p class="hero-subtitle">
-            C'est pas normal. <strong>E.M.A. change ça.</strong>
-        </p>
-        <p class="hero-description">
-            Nos micro-classes transforment la confusion théorique en <strong>arbres de décision</strong> — des algorithmes visuels qui tu suis étape par étape.
-        </p>
-        <button class="btn-primary btn-hero" onclick="scrollToSection('#lead-magnet')">
-            Réserver ma place
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🎓</span>
+      <div>
+        <strong>E.M.A. Tutorat</strong>
+        <small>Sherbrooke</small>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="goToAuth('login')">Se connecter</button>
+  </nav>
+
+  <header class="hero-compact">
+    <h1>Ton enfant bloque devant sa feuille d'examen?</h1>
+    <p class="hero-sub">
+      La méthode E.M.A. transforme chaque matière en protocole clair.
+      Résultats moyens : <strong>+28 à 32 points</strong> en moins de 4 mois.
+    </p>
+    <div class="hero-cta">
+      <button class="btn btn-primary btn-lg" onclick="goToAuth('signup')">Commencer maintenant</button>
+      <button class="btn btn-ghost btn-lg" onclick="scrollToSection('methode-preview')">Voir la méthode</button>
+    </div>
+  </header>
+
+  <section id="methode-preview" class="methode-preview">
+    <span class="badge">NOTRE MÉTHODE</span>
+    <div class="methode-grid">
+      <div class="methode-card">
+        <span class="methode-icon">⚡</span>
+        <h3>E. Exécution</h3>
+        <p>Entraînement sous pression, chronométré.</p>
+      </div>
+      <div class="methode-card">
+        <span class="methode-icon">🧠</span>
+        <h3>M. Méthode</h3>
+        <p>Diagnostic rigoureux du blocage.</p>
+      </div>
+      <div class="methode-card">
+        <span class="methode-icon">✅</span>
+        <h3>A. Algorithme</h3>
+        <p>Transformation en étapes mécaniques.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-preview">
+    <p>Questions? <a href="mailto:contact@ema-tutorat.ca">contact@ema-tutorat.ca</a></p>
+  </section>
+
+  <footer class="footer-mini">
+    <p>&copy; 2026 E.M.A. Tutorat — Sherbrooke, QC</p>
+  </footer>
+
+</div>
+
+<!-- ============================================
+     VUE 2 : AUTHENTIFICATION (style TutorCruncher)
+     ============================================ -->
+<div id="view-auth" class="view">
+
+  <div class="auth-split">
+
+    <!-- Panneau gauche : formulaire -->
+    <div class="auth-left">
+      <div class="auth-logo" onclick="goToLanding()">
+        🎓 E.M.A. Tutorat
+      </div>
+
+      <div id="auth-error" class="auth-alert hidden">
+        <span>⚠️</span>
+        <span id="auth-error-text">Erreur</span>
+        <button onclick="hideAuthError()" class="alert-close">×</button>
+      </div>
+
+      <!-- Toggle Login / Signup -->
+      <div class="auth-tabs">
+        <button id="tab-login" class="auth-tab active" onclick="switchAuthTab('login')">Connexion</button>
+        <button id="tab-signup" class="auth-tab" onclick="switchAuthTab('signup')">Inscription</button>
+      </div>
+
+      <!-- FORM LOGIN -->
+      <form id="form-login" class="auth-form" onsubmit="handleLogin(event)">
+        <h2>Bon retour!</h2>
+        <p class="auth-subtitle">Connecte-toi à ton portail.</p>
+
+        <label>Courriel <span class="required">*</span></label>
+        <input type="email" id="login-email" placeholder="ton.courriel@exemple.ca" required>
+
+        <label>Mot de passe <span class="required">*</span></label>
+        <input type="password" id="login-password" placeholder="Mot de passe" required>
+
+        <a href="#" class="forgot-link">Mot de passe oublié?</a>
+
+        <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+        <button type="button" class="btn btn-google btn-full" onclick="handleGoogleAuth()">
+          <span class="google-icon">G</span> Continuer avec Google
         </button>
-    </div>
-</section>
+      </form>
 
-<!-- ========== SECTION PROBLÈME / SOLUTION ========== -->
-<section id="probleme" class="problem-solution">
-    <div class="container">
-        <h2>Le Problème</h2>
-        <div class="two-column">
-            <div class="col">
-                <h3>❌ L'approche classique</h3>
-                <ul>
-                    <li>Théorie floue: "comprendre les concepts"</li>
-                    <li>Pas de méthode claire</li>
-                    <li>Chaque exercice prend 2x plus de temps</li>
-                    <li>Frustration parent + élève</li>
-                    <li>Résultat: abandon ou tuteur privé coûteux</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h3>✅ La Méthode E.M.A.</h3>
-                <ul>
-                    <li><strong>Arbres de décision visuels</strong> (pas de théorie)</li>
-                    <li>Algorithme mécanique à suivre</li>
-                    <li>Chaque exercice: 15 min max</li>
-                    <li>Élève autonome, confiant</li>
-                    <li>Parents sereins, résultats garantis</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+      <!-- FORM SIGNUP -->
+      <form id="form-signup" class="auth-form hidden" onsubmit="handleSignup(event)">
+        <h2>Créer ton compte</h2>
+        <p class="auth-subtitle">Accède à ton portail personnalisé.</p>
 
-<!-- ========== SECTION MÉTHODE ========== -->
-<section id="methode" class="method-section">
-    <div class="container">
-        <h2>Comment E.M.A. fonctionne</h2>
-        <div class="method-grid">
-            <div class="method-card">
-                <div class="method-number">1</div>
-                <h3>Exécution</h3>
-                <p>
-                    Pas de cours théorique de 2h. <br>
-                    On lance l'arbre de décision et on exécute.
-                </p>
-            </div>
-            <div class="method-card">
-                <div class="method-number">2</div>
-                <h3>Méthode</h3>
-                <p>
-                    Chaque problème = 1 arbre unique. <br>
-                    Suivre l'arbre = résoudre l'exercice. C'est mécanique.
-                </p>
-            </div>
-            <div class="method-card">
-                <div class="method-number">3</div>
-                <h3>Algorithme</h3>
-                <p>
-                    Répétable infiniment. <br>
-                    L'élève maîtrise le processus, pas juste "un" exercice.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+        <label>Prénom <span class="required">*</span></label>
+        <input type="text" id="signup-firstname" placeholder="Prénom" required>
 
-<!-- ========== SECTION ARBRE VISUEL ========== -->
-<section id="arbre" class="tree-section">
-    <div class="container">
-        <h2>Exemple: Fonction Quadratique (Trouver le sommet)</h2>
-        <p class="section-subtitle">
-            Voici comment E.M.A. résout <strong>chaque problème</strong> en 3 étapes claires.
-        </p>
-        
-        <!-- Arbre de décision en CSS -->
-        <div class="decision-tree">
-            <div class="tree-node root">
-                <span class="node-text">As-tu la forme<br><code>f(x) = ax² + bx + c</code> ?</span>
-            </div>
-            
-            <div class="tree-branches">
-                <div class="branch left-branch"></div>
-                <div class="branch right-branch"></div>
-            </div>
-            
-            <div class="tree-level-2">
-                <div class="tree-node child">
-                    <span class="node-text">NON<br><br>Développe ou<br>simplifie d'abord</span>
-                </div>
-                <div class="tree-node child">
-                    <span class="node-text">OUI<br><br>Calcule<br><code>x = -b/2a</code></span>
-                </div>
-            </div>
-            
-            <div class="tree-branches-2">
-                <div class="branch-2 left"></div>
-                <div class="branch-2 right"></div>
-            </div>
-            
-            <div class="tree-level-3">
-                <div class="tree-node leaf">
-                    <span class="node-text">Réécris sous<br>forme standard</span>
-                </div>
-                <div class="tree-node leaf">
-                    <span class="node-text">Trouve <code>y</code><br>avec ce <code>x</code></span>
-                </div>
-                <div class="tree-node leaf">
-                    <span class="node-text">Sommet:<br><code>(x, y)</code></span>
-                </div>
-            </div>
-        </div>
-        
-        <p class="tree-note">
-            <strong>Ça prend 8 min à suivre.</strong> Chaque arbre E.M.A. fonctionne exactement comme ça: décision → action → résultat.
-        </p>
-    </div>
-</section>
+        <label>Nom <span class="required">*</span></label>
+        <input type="text" id="signup-lastname" placeholder="Nom" required>
 
-<!-- ========== SECTION QUI SOMMES-NOUS ========== -->
-<section id="about" class="about">
-    <div class="container">
-        <h2>Qui sommes-nous?</h2>
-        <div class="about-content">
-            <p>
-                <strong>Majid et Ismael</strong> — deux étudiants en Sciences de la Nature au Cégep de Sherbrooke.
-            </p>
-            <p>
-                On a créé E.M.A. parce qu'on en avait assez de voir des élèves se battre avec des théories floues 
-                et des tuteurs à 60$/h. <strong>On voulait une approche qui marche.</strong>
-            </p>
-            <p>
-                Nos "Arbres de décision" ne sont pas théoriques — ce sont des <strong>protocoles exécutables</strong> 
-                qu'on a testés sur nos propres cohortes. Résultat: amélioration de 20-40% en 3-4 semaines.
-            </p>
-            <p>
-                <strong>On les propose gratuitement parce que l'éducation ne doit pas être un luxe.</strong>
-            </p>
-        </div>
-    </div>
-</section>
+        <label>Courriel <span class="required">*</span></label>
+        <input type="email" id="signup-email" placeholder="ton.courriel@exemple.ca" required>
 
-<!-- ========== SECTION TARIFS ========== -->
-<section id="tarifs" class="pricing">
-    <div class="container">
-        <h2>Tarifs</h2>
-        <p class="pricing-subtitle">
-            Deux formats. <strong>Zéro frais caché.</strong>
-        </p>
-        
-        <div class="pricing-grid" id="pricing-grid">
-            <!-- Généré par JavaScript depuis CONFIG.TARIFS -->
-        </div>
-        
-        <p class="pricing-note">
-            💡 Aucune différence de qualité — c'est juste la taille du groupe. Choisis ce qui te convient.
-        </p>
-    </div>
-</section>
+        <label>Téléphone</label>
+        <input type="tel" id="signup-phone" placeholder="514-000-0000">
 
-<!-- ========== SECTION LEAD MAGNET ========== -->
-<section id="lead-magnet" class="lead-magnet">
-    <div class="container">
-        <h2>Accès gratuit: L'Arbre Complet (Fonction Quadratique)</h2>
-        <p class="lead-subtitle">
-            Entre ton email et télécharge notre premier arbre de décision complet — plus détaillé, avec tous les pièges et astuces.
-        </p>
-        
-        <form id="lead-form" class="lead-form">
-            <div class="form-group">
-                <label for="email">Email (parents/élèves)</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="majid@email.com"
-                    required
-                >
-            </div>
-            
-            <div class="form-group">
-                <label for="nom">Prénom de l'élève</label>
-                <input 
-                    type="text" 
-                    id="nom" 
-                    name="nom" 
-                    placeholder="Ex: Marie"
-                    required
-                >
-            </div>
-            
-            <button type="submit" class="btn-primary">
-                Télécharger l'arbre gratuit
-            </button>
-        </form>
-        
-        <div id="form-confirmation" class="form-confirmation hidden">
-            <h3>✅ Merci!</h3>
-            <p>Tu vas recevoir un email avec le lien de téléchargement.</p>
-            <p>
-                En attendant: 
-                <a href="#" id="direct-download-link" target="_blank" class="btn-link">
-                    Télécharger maintenant
-                </a>
-            </p>
-            <p class="confirmation-note">
-                Tu as aussi débloqué l'accès au <strong>Portail Élève</strong> avec tous nos arbres.
-            </p>
-        </div>
-    </div>
-</section>
+        <label>Mot de passe <span class="required">*</span></label>
+        <input type="password" id="signup-password" placeholder="Mot de passe (min 6 caractères)" required minlength="6">
 
-<!-- ========== SECTION PORTAIL ÉLÈVE ========== -->
-<section id="portal" class="portal hidden">
-    <div class="container">
-        <h2>Portail Élève E.M.A.</h2>
-        <p class="portal-subtitle">
-            Tous nos arbres de décision en un seul endroit.
-        </p>
-        
-        <div class="portal-grid" id="portal-grid">
-            <!-- Généré par JavaScript depuis CONFIG.ARBRES -->
-        </div>
-    </div>
-</section>
-
-<!-- ========== SECTION RÉSERVATION ========== -->
-<section id="reservation" class="reservation">
-    <div class="container">
-        <h2>Réserver votre place</h2>
-        <p class="reservation-subtitle">
-            Choisissez un créneau qui vous convient. <strong>Pas d'engagement.</strong>
-        </p>
-        
-        <!-- Cal.com embed -->
-        <div class="calendar-embed">
-            <iframe 
-                src="https://cal.com/majid/micro-classe?embed=true&layout=month"
-                style="border:none;border-radius:12px;width:100%;height:600px;"
-                frameborder="0"
-                title="Calendrier de réservation E.M.A."
-            ></iframe>
-        </div>
-        
-        <!-- Fallback si l'embed ne charge pas -->
-        <div class="calendar-fallback">
-            <p>Si le calendrier ne s'affiche pas:</p>
-            <a href="https://cal.com/majid/micro-classe" target="_blank" class="btn-secondary">
-                Ouvrir le calendrier →
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ========== SECTION PAIEMENT INTERAC ========== -->
-<section id="interac" class="interac-payment">
-    <div class="container">
-        <h2>Comment payer avec Interac</h2>
-        <p class="interac-subtitle">
-            Simple, rapide, sécurisé.
-        </p>
-        
-        <div class="interac-steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Ouvre ton appli bancaire</h3>
-                <p>RBC, TD, BMO, Desjardins, etc. — tous les bans supportent Interac.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Sélectionne "Virement Interac"</h3>
-                <p>C'est le même bouton que pour envoyer de l'argent à un ami.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Rentre ces infos:</h3>
-                <div class="interac-details">
-                    <p><strong>Email:</strong> <span id="interac-email-display">majid@email.com</span></p>
-                    <p><strong>Montant:</strong> Voir ta réservation (ex: 75$ ou 150$)</p>
-                    <button class="btn-copy" onclick="copyToClipboard(document.getElementById('interac-email-display').textContent)">
-                        Copier l'email
-                    </button>
-                </div>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Définis ta question/réponse de sécurité</h3>
-                <p>Exemple: "Quel est le nom de mon école?" = "Saint-Louis"</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">5</div>
-                <h3>Envoie!</h3>
-                <p>L'argent arrive en quelques heures. Zéro frais pour toi.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ========== SECTION CONTACT CTA ========== -->
-<section id="contact" class="contact-cta">
-    <div class="container">
-        <h2>Prêt à commencer?</h2>
-        <p>
-            Trois étapes seulement:
-        </p>
-        <ol class="cta-steps">
-            <li>Télécharge l'arbre gratuit (plus haut)</li>
-            <li>Réserve une démo avec ton parent</li>
-            <li>Paye par Interac et on commence</li>
-        </ol>
-        
-        <button class="btn-primary btn-large" onclick="scrollToSection('#lead-magnet')">
-            Télécharger maintenant
+        <button type="submit" class="btn btn-primary btn-full">S'inscrire</button>
+        <button type="button" class="btn btn-google btn-full" onclick="handleGoogleAuth()">
+          <span class="google-icon">G</span> S'inscrire avec Google
         </button>
-        
-        <p class="contact-note">
-            Des questions? Écris-nous à <strong>info@e.m.a.tutorat.ca</strong>
-        </p>
-    </div>
-</section>
+      </form>
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>E.M.A. Tutorat</h4>
-                <p>Micro-classes de mathématiques SN4 à Sherbrooke.</p>
-                <p><strong>Éthique • Minimaliste • Efficace</strong></p>
-            </div>
-            <div class="footer-section">
-                <h4>Liens rapides</h4>
-                <ul>
-                    <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#methode">Méthode</a></li>
-                    <li><a href="#tarifs">Tarifs</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Localisation</h4>
-                <p>Sherbrooke, Québec 🍁</p>
-                <p>Service offert en ligne.</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 E.M.A. Tutorat. Tous droits réservés.</p>
-        </div>
     </div>
-</footer>
 
-<!-- ========== SCRIPTS ========== -->
+    <!-- Panneau droit : image/promo -->
+    <div class="auth-right">
+      <div class="auth-promo-card">
+        <div class="promo-illustration">📈</div>
+        <h3>Suis ta progression en temps réel</h3>
+        <p>Ton tableau de bord personnel te montre tes séances, tes arbres de méthode et ta progression, à chaque instant.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================
+     VUE 3 : DASHBOARD CLIENT (style Bolt.new dark)
+     ============================================ -->
+<div id="view-dashboard" class="view">
+
+  <div class="dash-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar">
+      <div class="dash-logo">
+        <span class="logo-icon">🎓</span>
+        <div>
+          <strong>E.M.A. Tutorat</strong>
+          <small id="sidebar-location">Sherbrooke</small>
+        </div>
+      </div>
+
+      <nav class="dash-nav">
+        <span class="dash-nav-label">NAVIGATION</span>
+        <button class="dash-nav-item active" onclick="switchDashTab('accueil')">
+          <span>🏠</span> Tableau de bord
+        </button>
+        <button class="dash-nav-item" onclick="switchDashTab('calendrier')">
+          <span>📅</span> Calendrier
+        </button>
+        <button class="dash-nav-item" onclick="switchDashTab('paiements')">
+          <span>💳</span> Paiements
+        </button>
+        <button class="dash-nav-item" onclick="switchDashTab('progression')">
+          <span>📊</span> Progression
+        </button>
+        <button class="dash-nav-item" onclick="switchDashTab('coffre')">
+          <span>🗄️</span> Coffre-fort (Arbres)
+        </button>
+        <button class="dash-nav-item" onclick="switchDashTab('contact')">
+          <span>☎️</span> Contact
+        </button>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-card">
+          <span id="dash-user-initials">??</span>
+          <div>
+            <strong id="dash-user-name">Utilisateur</strong>
+            <small>Élève</small>
+          </div>
+        </div>
+        <button class="btn-logout" onclick="handleLogout()">Déconnexion</button>
+      </div>
+    </aside>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="dash-main">
+
+      <div class="dash-banner">
+        <span>⚠️</span>
+        <span>Période d'examens ministériels — Prépare tes protocoles d'exécution E.M.A. dès maintenant.</span>
+        <button class="alert-close" onclick="this.parentElement.style.display='none'">×</button>
+      </div>
+
+      <!-- ONGLET ACCUEIL -->
+      <section id="dash-accueil" class="dash-section active">
+        <h1>Bienvenue, <span id="welcome-name">!</span> 👋</h1>
+        <p class="dash-subtitle">Voici ton portail de tutorat personnalisé.</p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">PROCHAINE SÉANCE</span>
+            <strong id="stat-next-session">Aucune séance</strong>
+            <small id="stat-next-time">Réserve via le calendrier</small>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">HEURES COMPLÉTÉES</span>
+            <strong id="stat-hours">0 h</strong>
+            <small>depuis ton inscription</small>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">OBJECTIF DE PROGRESSION</span>
+            <strong id="stat-progress">— pts</strong>
+            <small>moyenne générale</small>
+          </div>
+        </div>
+
+        <span class="badge">NOTRE MÉTHODE</span>
+        <div class="methode-accordion">
+          <div class="methode-item">
+            <div class="methode-item-header" onclick="toggleAccordion(this)">
+              <span>⚡</span>
+              <div>
+                <strong>E. Exécution</strong> — Entraînement sous pression
+                <p>Briser le syndrome de la page blanche par la pratique chronométrée.</p>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+          <div class="methode-item">
+            <div class="methode-item-header" onclick="toggleAccordion(this)">
+              <span>🧠</span>
+              <div>
+                <strong>M. Méthode</strong> — Diagnostic rigoureux
+                <p>Identification précise de la nature du blocage de l'élève.</p>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+          <div class="methode-item">
+            <div class="methode-item-header" onclick="toggleAccordion(this)">
+              <span>✅</span>
+              <div>
+                <strong>A. Algorithme</strong> — Transformation en étapes
+                <p>La matière devient une suite logique d'actions mécaniques.</p>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Pourquoi E.M.A. fonctionne?</h3>
+          <p>La plupart des élèves en difficulté ne manquent pas d'intelligence — ils manquent d'une méthode reproductible. E.M.A. Tutorat transforme chaque matière en protocole d'exécution clair, permettant à l'élève de performer même sous pression d'examen. Nos résultats montrent une progression moyenne de <strong>28 à 32 points</strong> sur la note finale en moins de 4 mois.</p>
+        </div>
+      </section>
+
+      <!-- ONGLET CALENDRIER -->
+      <section id="dash-calendrier" class="dash-section">
+        <h1>📅 Réserver une séance</h1>
+        <p class="dash-subtitle">Choisis un créneau disponible selon tes besoins.</p>
+
+        <div class="calendar-embed-container">
+          <!-- Cal.com iframe embed - À REMPLIR avec ton username -->
+          <iframe
+            id="calcom-iframe"
+            src="https://cal.com/TON_USERNAME_CALCOM"
+            width="100%"
+            height="700"
+            frameborder="0"
+            title="Réservation Cal.com">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- ONGLET PAIEMENTS -->
+      <section id="dash-paiements" class="dash-section">
+        <h1>💳 Paiements</h1>
+        <p class="dash-subtitle">Instructions pour compléter ton virement Interac.</p>
+
+        <div class="payment-card">
+          <h3>Virement Interac — Dépôt automatique</h3>
+          <div class="payment-detail">
+            <span>Destinataire :</span>
+            <strong>E.M.A. Tutorat</strong>
+          </div>
+          <div class="payment-detail">
+            <span>Courriel Interac :</span>
+            <strong id="payment-email">paiement@ema-tutorat.ca</strong>
+          </div>
+          <div class="payment-detail">
+            <span>Montant à envoyer :</span>
+            <strong id="payment-amount">Voir courriel de confirmation</strong>
+          </div>
+          <p class="payment-note">
+            ✅ Le dépôt est automatique — tu n'as pas besoin d'entrer de question de sécurité.
+          </p>
+        </div>
+
+        <div class="payment-history">
+          <h3>Historique des paiements</h3>
+          <div id="payment-history-list" class="empty-state">
+            Aucun paiement enregistré pour le moment.
+          </div>
+        </div>
+      </section>
+
+      <!-- ONGLET PROGRESSION -->
+      <section id="dash-progression" class="dash-section">
+        <h1>📊 Progression</h1>
+        <p class="dash-subtitle">Suivi de tes performances au fil des séances.</p>
+
+        <div class="empty-state-big">
+          <span class="empty-icon">📈</span>
+          <h3>Aucune donnée de progression pour le moment</h3>
+          <p>Après ta première séance, ton tuteur mettra à jour ta progression ici.</p>
+        </div>
+      </section>
+
+      <!-- ONGLET COFFRE-FORT (Arbres décisionnels) -->
+      <section id="dash-coffre" class="dash-section">
+        <h1>🗄️ Coffre-fort — Banque d'arbres</h1>
+        <p class="dash-subtitle">Retrouve tous les protocoles (arbres décisionnels) de tes séances passées.</p>
+
+        <div id="arbres-list" class="arbres-grid">
+          <div class="empty-state-big">
+            <span class="empty-icon">🌳</span>
+            <h3>Aucun arbre disponible pour le moment</h3>
+            <p>Après chaque séance, l'arbre décisionnel de la méthode utilisée apparaîtra ici automatiquement.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ONGLET CONTACT -->
+      <section id="dash-contact" class="dash-section">
+        <h1>☎️ Nous contacter</h1>
+        <p class="dash-subtitle">On est toujours disponibles pour répondre à tes questions.</p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <h3>Courriel</h3>
+            <a href="mailto:contact@ema-tutorat.ca">contact@ema-tutorat.ca</a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📞</span>
+            <h3>Téléphone</h3>
+            <a href="tel:+15140000000">514-000-0000</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
 <script src="app.js"></script>
 </body>
 </html>
