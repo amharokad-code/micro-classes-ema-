@@ -1,1 +1,427 @@
-wd
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portail Étudiant — E.M.A. Tutorat</title>
+<meta name="description" content="Ton tableau de bord personnel E.M.A. Tutorat.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+  <!-- ===================================
+       SIDEBAR — Navigation latérale
+       =================================== -->
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">
+      <span class="logo-icon">🎓</span>
+      <strong>E.M.A. Tutorat</strong>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#accueil" class="sidebar-link active" onclick="showSection('accueil', this)">
+        <span>🏠</span> Accueil
+      </a>
+      <a href="#seances" class="sidebar-link" onclick="showSection('seances', this)">
+        <span>📅</span> Mes séances
+      </a>
+      <a href="#progression" class="sidebar-link" onclick="showSection('progression', this)">
+        <span>📈</span> Ma progression
+      </a>
+      <a href="#methode" class="sidebar-link" onclick="showSection('methode', this)">
+        <span>🌳</span> Arbre méthode
+      </a>
+      <a href="#documents" class="sidebar-link" onclick="showSection('documents', this)">
+        <span>📄</span> Documents
+      </a>
+      <a href="#paiements" class="sidebar-link" onclick="showSection('paiements', this)">
+        <span>💳</span> Paiements
+      </a>
+      <a href="#profil" class="sidebar-link" onclick="showSection('profil', this)">
+        <span>⚙️</span> Mon profil
+      </a>
+    </nav>
+
+    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--color-border);">
+      <a href="index.html" class="sidebar-link">
+        <span>🚪</span> Déconnexion
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ===================================
+       CONTENU PRINCIPAL
+       =================================== -->
+  <main class="main-content">
+
+    <!-- ============ SECTION ACCUEIL ============ -->
+    <div id="section-accueil" class="dashboard-section">
+
+      <div class="dashboard-header">
+        <h1>Bienvenue, <span id="userFirstName">Étudiant</span> 👋</h1>
+        <a href="#seances" class="btn btn-primary" onclick="showSection('seances', document.querySelectorAll('.sidebar-link')[1])">
+          + Réserver une séance
+        </a>
+      </div>
+
+      <!-- Cartes statistiques -->
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-label">Séances complétées</div>
+          <div class="stat-value">12</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Prochaine séance</div>
+          <div class="stat-value" style="font-size: 1.1rem;">Lundi 14h</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Progression</div>
+          <div class="stat-value">68%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Note moyenne</div>
+          <div class="stat-value">B+</div>
+        </div>
+      </div>
+
+      <!-- Section double colonne : prochaine séance + activité récente -->
+      <div class="grid-2">
+
+        <div class="card">
+          <h3>📅 Ta prochaine séance</h3>
+          <p style="margin: 16px 0;">
+            <strong>Mathématiques — Algèbre</strong><br>
+            Lundi 25 août, 14h00 — 15h00<br>
+            Avec Marc-André T.
+          </p>
+          <button class="btn btn-secondary btn-full" onclick="alert('Simulation : lien Zoom/Meet à venir')">
+            Rejoindre la séance
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>🔥 Activité récente</h3>
+          <ul style="margin-top: 16px; color: var(--color-text-muted); font-size: 0.9rem; line-height: 2;">
+            <li>✅ Séance complétée — Physique (20 août)</li>
+            <li>📄 Nouveau document ajouté — Résumé chapitre 4</li>
+            <li>🌳 Arbre méthode mis à jour — Dérivées</li>
+            <li>💳 Paiement confirmé — 120$</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION SÉANCES ============ -->
+    <div id="section-seances" class="dashboard-section" style="display:none;">
+
+      <div class="dashboard-header">
+        <h1>Mes séances</h1>
+      </div>
+
+      <div class="card" style="margin-bottom: 24px;">
+        <h3>📆 Réserver une nouvelle séance</h3>
+        <p style="color: var(--color-text-muted); margin: 12px 0 20px;">
+          Choisis un créneau disponible dans le calendrier ci-dessous.
+        </p>
+        <!-- Intégration Cal.com (remplacer TON-USERNAME) -->
+        <div style="background: var(--color-bg-darker); border: 1px dashed var(--color-border); border-radius: var(--radius-md); padding: 40px; text-align: center; color: var(--color-text-dim);">
+          [ Widget Cal.com sera intégré ici — iframe Cal.com ]
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📋 Historique de mes séances</h3>
+        <table style="width: 100%; margin-top: 16px; border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--color-border); text-align: left;">
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Date</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Matière</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Tuteur</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Statut</th>
+            </tr>
+          </thead>
+          <tbody id="tableSeances">
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 10px;">20 août 2026</td>
+              <td style="padding: 10px;">Physique</td>
+              <td style="padding: 10px;">Marc-André T.</td>
+              <td style="padding: 10px;"><span style="color: var(--color-secondary);">✅ Complétée</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 10px;">13 août 2026</td>
+              <td style="padding: 10px;">Mathématiques</td>
+              <td style="padding: 10px;">Marc-André T.</td>
+              <td style="padding: 10px;"><span style="color: var(--color-secondary);">✅ Complétée</span></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;">25 août 2026</td>
+              <td style="padding: 10px;">Mathématiques</td>
+              <td style="padding: 10px;">Marc-André T.</td>
+              <td style="padding: 10px;"><span style="color: var(--color-accent);">🕓 À venir</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION PROGRESSION ============ -->
+    <div id="section-progression" class="dashboard-section" style="display:none;">
+
+      <div class="dashboard-header">
+        <h1>Ma progression</h1>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>📊 Progression par matière</h3>
+          <div style="margin-top: 20px;">
+
+            <div style="margin-bottom: 16px;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:0.9rem;">
+                <span>Mathématiques</span><span>75%</span>
+              </div>
+              <div style="background: var(--color-bg-darker); border-radius: 8px; height: 8px; overflow: hidden;">
+                <div style="background: var(--color-primary); height: 100%; width: 75%;"></div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:0.9rem;">
+                <span>Physique</span><span>60%</span>
+              </div>
+              <div style="background: var(--color-bg-darker); border-radius: 8px; height: 8px; overflow: hidden;">
+                <div style="background: var(--color-secondary); height: 100%; width: 60%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:0.9rem;">
+                <span>Chimie</span><span>45%</span>
+              </div>
+              <div style="background: var(--color-bg-darker); border-radius: 8px; height: 8px; overflow: hidden;">
+                <div style="background: var(--color-accent); height: 100%; width: 45%;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🎯 Objectifs actuels</h3>
+          <ul style="margin-top: 16px; color: var(--color-text-muted); font-size: 0.9rem; line-height: 2;">
+            <li>☐ Maîtriser les dérivées (Mathématiques)</li>
+            <li>☑ Comprendre les lois de Newton (Physique)</li>
+            <li>☐ Réviser la stœchiométrie (Chimie)</li>
+            <li>☐ Pratiquer 5 examens blancs avant l'examen final</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION ARBRE MÉTHODE ============ -->
+    <div id="section-methode" class="dashboard-section" style="display:none;">
+
+      <div class="dashboard-header">
+        <h1>Arbre méthode E.M.A.</h1>
+      </div>
+
+      <div class="card">
+        <p style="color: var(--color-text-muted); margin-bottom: 24px;">
+          Visualise comment chaque concept se connecte pour bâtir ta compréhension globale.
+        </p>
+        <div style="background: var(--color-bg-darker); border: 1px dashed var(--color-border); border-radius: var(--radius-md); padding: 60px; text-align: center; color: var(--color-text-dim);">
+          🌳 [ Visualisation de l'arbre méthode à intégrer — prochaine étape ]
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION DOCUMENTS ============ -->
+    <div id="section-documents" class="dashboard-section" style="display:none;">
+
+      <div class="dashboard-header">
+        <h1>Mes documents</h1>
+      </div>
+
+      <div class="card">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--color-border); text-align: left;">
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Nom</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Matière</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Date</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 10px;">📄 Résumé chapitre 4 — Dérivées</td>
+              <td style="padding: 10px;">Mathématiques</td>
+              <td style="padding: 10px;">20 août 2026</td>
+              <td style="padding: 10px;"><a href="#" class="btn btn-secondary" style="padding: 6px 14px; font-size:0.85rem;">Télécharger</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;">📄 Formulaire lois de Newton</td>
+              <td style="padding: 10px;">Physique</td>
+              <td style="padding: 10px;">13 août 2026</td>
+              <td style="padding: 10px;"><a href="#" class="btn btn-secondary" style="padding: 6px 14px; font-size:0.85rem;">Télécharger</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION PAIEMENTS ============ -->
+    <div id="section-paiements" class="dashboard-section" style="display:none;">
+
+      <div class="dashboard-header">
+        <h1>Paiements</h1>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>💳 Solde actuel</h3>
+          <p style="font-size: 2rem; font-weight: 700; margin: 16px 0; color: var(--color-secondary);">0,00 $</p>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Aucun montant dû. Merci!</p>
+        </div>
+
+        <div class="card">
+          <h3>📤 Effectuer un paiement Interac</h3>
+          <p style="color: var(--color-text-muted); margin: 12px 0;">
+            Envoie ton virement Interac à :
+          </p>
+          <p style="background: var(--color-bg-darker); padding: 12px; border-radius: var(--radius-sm); font-weight: 600; text-align: center;">
+            paiement@ema-tutorat.ca
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 24px;">
+        <h3>📋 Historique des paiements</h3>
+        <table style="width: 100%; margin-top: 16px; border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--color-border); text-align: left;">
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Date</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Montant</th>
+              <th style="padding: 10px; color: var(--color-text-muted); font-size: 0.85rem;">Statut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px;">15 août 2026</td>
+              <td style="padding: 10px;">120,00 $</td>
+              <td style="padding: 10px;"><span style="color: var(--color-secondary);">✅ Confirmé</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ============ SECTION PROFIL ============ -->
+    <div id="section-profil" class="dashboard-section" style="display:none;">
+
+      <div class="dashboard-header">
+        <h1>Mon profil</h1>
+      </div>
+
+      <div class="card" style="max-width: 500px;">
+        <form class="auth-form" onsubmit="return saveProfile(event)">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profPrenom">Prénom</label>
+              <input type="text" id="profPrenom" value="Étudiant">
+            </div>
+            <div class="form-group">
+              <label for="profNom">Nom</label>
+              <input type="text" id="profNom" value="Test">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="profEmail">Courriel</label>
+            <input type="email" id="profEmail" value="etudiant@exemple.com">
+          </div>
+
+          <div class="form-group">
+            <label for="profTel">Téléphone</label>
+            <input type="tel" id="profTel" value="514-000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="profNiveau">Niveau scolaire</label>
+            <select id="profNiveau">
+              <option>Secondaire 1</option>
+              <option>Secondaire 2</option>
+              <option>Secondaire 3</option>
+              <option>Secondaire 4</option>
+              <option selected>Secondaire 5</option>
+              <option>Cégep</option>
+              <option>Université</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Enregistrer les modifications</button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+// ============================================
+// NAVIGATION ENTRE SECTIONS DU DASHBOARD
+// ============================================
+function showSection(sectionName, linkElement) {
+  // Cacher toutes les sections
+  document.querySelectorAll('.dashboard-section').forEach(section => {
+    section.style.display = 'none';
+  });
+
+  // Afficher la section demandée
+  const target = document.getElementById('section-' + sectionName);
+  if (target) target.style.display = 'block';
+
+  // Mettre à jour l'état actif dans la sidebar
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.classList.remove('active');
+  });
+  if (linkElement) linkElement.classList.add('active');
+}
+
+// ============================================
+// SIMULATION SAUVEGARDE PROFIL
+// ============================================
+function saveProfile(event) {
+  event.preventDefault();
+  alert('Profil mis à jour (simulation) ✅');
+  return false;
+}
+
+// ============================================
+// AU CHARGEMENT : afficher prénom personnalisé si disponible
+// ============================================
+window.addEventListener('DOMContentLoaded', () => {
+  const savedName = localStorage.getItem('ema_prenom');
+  if (savedName) {
+    document.getElementById('userFirstName').textContent = savedName;
+  }
+});
+</script>
+
+</body>
+</html>
