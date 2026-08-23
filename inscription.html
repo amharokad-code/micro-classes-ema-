@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription — E.M.A. Tutorat</title>
+<meta name="description" content="Crée ton compte E.M.A. Tutorat et accède à ton portail personnel.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-container">
+
+  <!-- ===================================
+       COLONNE GAUCHE : Formulaire
+       =================================== -->
+  <div class="auth-left">
+
+    <div class="auth-logo">
+      <span class="logo-icon">🎓</span>
+      <strong>E.M.A. Tutorat</strong>
+    </div>
+
+    <h1 class="auth-title">Créer ton compte</h1>
+    <p class="auth-sub">Accède à ton portail personnel pour réserver tes séances.</p>
+
+    <!-- Bouton Google -->
+    <button class="btn-google" onclick="alert('Simulation : Connexion Google à venir')">
+      <svg width="20" height="20" viewBox="0 0 48 48">
+        <path fill="#FFC107" d="M43.6 20.5h-1.9V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/>
+        <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.6 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4c-7.5 0-14 4.2-17.3 10.4z"/>
+        <path fill="#4CAF50" d="M24 44c5.5 0 10.4-1.9 14.2-5l-6.6-5.6c-2 1.4-4.6 2.2-7.6 2.2-5.2 0-9.6-3.3-11.3-8l-6.6 5.1C9.9 39.8 16.4 44 24 44z"/>
+        <path fill="#1976D2" d="M43.6 20.5h-1.9V20H24v8h11.3c-.8 2.3-2.3 4.2-4.2 5.6l6.6 5.6C41.4 36.1 44 30.5 44 24c0-1.3-.1-2.7-.4-3.5z"/>
+      </svg>
+      Continuer avec Google
+    </button>
+
+    <div class="auth-divider">
+      <span>ou</span>
+    </div>
+
+    <!-- Formulaire classique -->
+    <form id="inscription-form" class="auth-form" onsubmit="return handleInscription(event)">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" required placeholder="Alex">
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="nom" required placeholder="Tremblay">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Courriel *</label>
+        <input type="email" id="email" name="email" required placeholder="ton.courriel@exemple.ca">
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="(819) 555-1234">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe *</label>
+        <input type="password" id="password" name="password" required placeholder="••••••••" minlength="6">
+      </div>
+
+      <div class="form-group">
+        <label for="niveau">Niveau scolaire *</label>
+        <select id="niveau" name="niveau" required>
+          <option value="">Sélectionne...</option>
+          <option value="secondaire3">Secondaire 3</option>
+          <option value="secondaire4">Secondaire 4</option>
+          <option value="secondaire5">Secondaire 5</option>
+          <option value="cegep">Cégep</option>
+        </select>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">J'accepte les <a href="#" target="_blank">conditions d'utilisation</a></label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full">Créer mon compte</button>
+
+    </form>
+
+    <p class="auth-footer-text">
+      Déjà inscrit? <a href="dashboard.html">Se connecter</a>
+    </p>
+
+  </div>
+
+  <!-- ===================================
+       COLONNE DROITE : Image/Info
+       =================================== -->
+  <div class="auth-right">
+    <div class="auth-right-content">
+      <div class="auth-graphic">📈</div>
+      <h2>Suis ta progression en temps réel</h2>
+      <p>Ton tableau de bord personnel te montre tes séances, tes arbres de méthode et ta progression, à chaque instant.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ============================================
+// SIMULATION D'INSCRIPTION (pas de vrai backend pour l'instant)
+// ============================================
+function handleInscription(event) {
+  event.preventDefault();
+
+  const prenom = document.getElementById('prenom').value;
+  const email = document.getElementById('email').value;
+
+  // Simulation : on affiche une confirmation, puis redirige vers dashboard
+  alert(`Bienvenue ${prenom}! Ton compte a été créé (simulation).\nTu vas être redirigé vers ton portail.`);
+
+  // Redirection vers le dashboard
+  window.location.href = 'dashboard.html';
+
+  return false;
+}
+</script>
+
+</body>
+</html>
